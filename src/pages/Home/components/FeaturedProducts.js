@@ -9,9 +9,11 @@ export const FeaturedProducts = () => {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await fetch("http://localhost:9000/featured_products");
+        console.log("calling fetch products 1")
+        const response = await fetch("https://wk8jk.wiremockapi.cloud/thing/1");
         const data = await response.json();
-        setProducts(data);
+        console.log(data.featured_products);
+        setProducts(data.featured_products);
       } catch (error) {
         toast.error(error.message, {
           closeButton: true,

@@ -19,9 +19,12 @@ export const ProductsList = () => {
   useEffect(() => {
     async function fetchProducts(){
       try{
-        const response = await fetch("http://localhost:9000/products");
+        console.log("Calling fetch products")
+        const response = await fetch("https://dev-ganky89sva8hsix.api.raw-labs.com/mock/json-api/featured-products");
         const data = await response.json();
+        console.log(data);
         initialProductList(data); 
+
       } catch(error){
         toast.error(error.message, {closeButton: true, position: "bottom-center" });
       }
